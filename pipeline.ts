@@ -42,7 +42,7 @@ async function runner() {
     const cmd2 = `docker container remove tl-cont`;
     const cmd3 = `docker image rm tl-img`;
     const cmd4 = `docker build -t tl-img .`;
-    const cmd5 = `docker run --name=tl-cont -d tl-img`;
+    const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} tl-img`;
 
     await cmdHelper(cmd0);
     await createDockerfile();
