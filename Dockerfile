@@ -13,9 +13,6 @@ RUN bun install
 # Copy the rest of the app
 COPY . .
 
-# Expose port (optional but recommended)
-EXPOSE 3000
-
 # Start the app
 CMD ["bun", "run", "dev"]
 

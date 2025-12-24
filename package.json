@@ -1,19 +1,20 @@
 {
-  "name": "timelogger-server",
-  "module": "src/index.ts",
-  "type": "module",
-  "scripts": {
-    "dev": "bun run src/index.ts"
-  },
-  "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@types/express": "^5.0.6",
-    "express": "^5.2.1"
-  }
+    "name": "timelogger-server",
+    "module": "src/index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun run src/index.ts",
+        "format": "prettier --config prettierrc.json --write ."
+    },
+    "private": true,
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "@types/express": "^5.0.6",
+        "express": "^5.2.1"
+    }
 }
