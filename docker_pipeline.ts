@@ -1,24 +1,12 @@
 import { appinfo } from './src/app_info';
-
-async function cmdHelper(srr: string) {
-    const arr = srr.split(' ');
-    const prosces = Bun.spawn({
-        cmd: arr,
-        stdout: 'inherit',
-        stderr: 'inherit',
-    });
-
-    await prosces.exited;
-}
+import { cmdHelper } from './libs';
 
 // TODO
 // add port bidings
 async function createDockerfile() {
     await Bun.write(
         'Dockerfile',
-        `
-
-FROM ${appinfo.docker.image}:${appinfo.docker.version}
+        `FROM ${appinfo.docker.image}:${appinfo.docker.version}
 
 WORKDIR /app
 
@@ -38,11 +26,11 @@ CMD ["bun", "run", "dev"]
 
 async function runner() {
     const cmd0 = `rm -rf Dockerfile`;
-    const cmd1 = `docker container stop tl-cont`;
-    const cmd2 = `docker container remove tl-cont`;
-    const cmd3 = `docker image rm tl-img`;
-    const cmd4 = `docker build -t tl-img .`;
-    const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} tl-img`;
+    const cmd1 = `docker container stop ${appinfo.docker.cont_name}`;
+    const cmd2 = `docker container remove ${appinfo.docker.cont_name}`;
+    const cmd3 = `docker image rm ${appinfo.docker.image_name}`;
+    const cmd4 = `docker build -t ${appinfo.docker.image_name}:${appinfo.app_version} .`;
+    const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} tl-img:${appinfo.app_version}`;
 
     await cmdHelper(cmd0);
     await createDockerfile();

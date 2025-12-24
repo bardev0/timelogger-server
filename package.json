@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "bun run src/index.ts",
         "format": "prettier --config prettierrc.json --write .",
-        "deploy-docker": "bun pipeline.ts"
+        "deploy-docker": "bun docker_pipeline.ts"
     },
     "private": true,
     "devDependencies": {

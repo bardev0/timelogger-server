@@ -1,5 +1,3 @@
-
-
 FROM oven/bun:1.3.5
 
 WORKDIR /app

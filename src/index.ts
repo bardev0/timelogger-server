@@ -13,9 +13,9 @@ const hw = {
     appname: appinfo.app_name,
     appversion: appinfo.app_version,
     externalIp: await getExternalIp(),
-}
+};
 
-console.log(hw)
+console.log(hw);
 
 import express from 'express';
 
