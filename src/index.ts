@@ -1,4 +1,4 @@
-console.log("Hello via Bun!");
+console.log("Timelogger");
 
 import express from 'express'
 
