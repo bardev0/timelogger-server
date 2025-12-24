@@ -8,7 +8,7 @@ export type Tappinfo = {
     };
 };
 
-const appinfo: Tappinfo = {
+export const appinfo: Tappinfo = {
     app_version: '0.0.1',
     docker: {
         image: 'oven/bun',
