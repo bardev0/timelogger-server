@@ -3,11 +3,11 @@ import { MongoClient, Db } from 'mongodb';
 import { appinfo } from './app_info';
 let db: Db | null = null;
 
-let dbs = {
+export let dbs = {
     timelogger: 'tl',
 };
 
-let cols = {
+export let cols = {
     openSessions: 'open_sessions',
 };
 
@@ -18,7 +18,7 @@ let cols = {
 //
 let user = 'admin';
 let password = 'password';
-let URI = `mongodb://${user}:${password}@${appinfo.mongo.cont_name}:27017/`;
+export let URI = `mongodb://${user}:${password}@${appinfo.mongo.cont_name}:27017/`;
 
 export async function checkMongo() {
     const client = new MongoClient(URI);
