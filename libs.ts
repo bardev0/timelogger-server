@@ -8,3 +8,12 @@ export async function cmdHelper(srr: string) {
 
     await prosces.exited;
 }
+
+export async function getExternalIp() {
+    type IpResponse = {
+        ip: string;
+    };
+    const res = await fetch('https://api.ipify.org?format=json');
+    const data: IpResponse | any = await res.json();
+    return data.ip;
+}
