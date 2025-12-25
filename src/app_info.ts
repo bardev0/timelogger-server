@@ -1,6 +1,7 @@
 export type Tappinfo = {
     app_name: string;
     app_version: string;
+    docker_network: string;
     docker: {
         image: string;
         version: string;
@@ -23,6 +24,7 @@ export type Tappinfo = {
 export const appinfo: Tappinfo = {
     app_name: 'Timelogger',
     app_version: '0.0.1',
+    docker_network: 'tl-net',
     docker: {
         image: 'oven/bun',
         version: '1.3.5',

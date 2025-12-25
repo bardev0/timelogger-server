@@ -2,7 +2,7 @@ import { appinfo } from './src/app_info';
 import { cmdHelper } from './libs';
 
 // TODO
-// add port bidings
+// add check for docker-network before running containers
 async function createDockerfile() {
     await Bun.write(
         'Dockerfile',
@@ -30,7 +30,7 @@ async function runner() {
     const cmd2 = `docker container remove ${appinfo.docker.cont_name}`;
     const cmd3 = `docker image rm ${appinfo.docker.image_name}`;
     const cmd4 = `docker build -t ${appinfo.docker.image_name}:${appinfo.app_version} .`;
-    const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} tl-img:${appinfo.app_version}`;
+    const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} --network ${appinfo.docker_network} tl-img:${appinfo.app_version}`;
 
     await cmdHelper(cmd0);
     await createDockerfile();

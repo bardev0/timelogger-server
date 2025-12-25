@@ -15,6 +15,7 @@ async function runner() {
         `-p ${appinfo.mongo.port}:27017`,
         `-v ${mongoDataDir}:/data/db`,
         `-v ${mongoLogDir}:/var/log/mongodb`,
+        `--network ${appinfo.docker_network}`,
         `-e MONGO_INITDB_ROOT_USERNAME=${appinfo.mongo.init_username}`,
         `-e MONGO_INITDB_ROOT_PASSWORD=${appinfo.mongo.init_password}`,
         `mongo:${appinfo.mongo.version}`,

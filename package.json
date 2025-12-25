@@ -5,7 +5,8 @@
     "scripts": {
         "dev": "bun run src/index.ts",
         "format": "prettier --config prettierrc.json --write .",
-        "deploy-docker": "bun docker_pipeline.ts"
+        "deploy-docker": "bun docker_pipeline.ts",
+        "deploy-mongo": "bun mongo_pipeline.ts"
     },
     "private": true,
     "devDependencies": {
@@ -16,6 +17,7 @@
     },
     "dependencies": {
         "@types/express": "^5.0.6",
-        "express": "^5.2.1"
+        "express": "^5.2.1",
+        "mongodb": "^7.0.0"
     }
 }
