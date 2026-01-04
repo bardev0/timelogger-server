@@ -3,6 +3,7 @@ export const paths = {
     check_mongo: '/mongo_check',
     return_all_sessh: '/return_all_sesionss',
     addNewOpenSession: '/new_open_session',
+    moveOtC: '/move_session',
 };
 
 //TODO -> find good HTTP API client for post request

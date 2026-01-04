@@ -10,6 +10,11 @@ export let dbs = {
 
 export let cols = {
     openSessions: 'open_sessions',
+    closedSessions: 'closed_sessions',
+};
+
+export let tlerrors = {
+    currentlyNoOpenSesh: 'ERROR : no open session ',
 };
 
 // TODO automagick

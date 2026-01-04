@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import hw from './routes/hw';
 import check_mongo from './routes/check_mongo';
-import return_sesh from './routes/return_sesh';
+import return_sesh from './routes/return_sesh'; // closed seshions
 import create_new_open_sesh from './routes/create_new_open_sesh';
+import moveSesh from './routes/moveSesh';
 
 import { paths } from './paths';
 
@@ -11,6 +12,7 @@ const router = Router();
 router.get(paths.hello_world, hw);
 router.get(paths.check_mongo, check_mongo);
 router.get(paths.return_all_sessh, return_sesh);
+router.post(paths.moveOtC, moveSesh);
 router.post(paths.addNewOpenSession, create_new_open_sesh);
 
 export default router;
