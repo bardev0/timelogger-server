@@ -15,6 +15,7 @@ export let cols = {
 
 export let tlerrors = {
     currentlyNoOpenSesh: 'ERROR : no open session ',
+    sessionAlreadyOpened: 'ERROR : session already open',
 };
 
 // TODO automagick

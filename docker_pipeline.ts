@@ -50,7 +50,7 @@ async function runner() {
         'rsync -a --exclude=".git" ../timelogger-types/ ./timelogger-types/';
     const cmd4 = `docker build -t ${appinfo.docker.image_name}:${version} .`;
     const cmd5 = `docker run --name=tl-cont -d -p${appinfo.docker.portHost}:${appinfo.docker.portContainer} --network ${appinfo.docker_network} tl-img:${version}`;
-	const cmd6 = `rm -rf timelogger-types`
+    const cmd6 = `rm -rf timelogger-types`;
 
     await cmdHelper(cmd0);
     await createDockerfile();
@@ -60,7 +60,7 @@ async function runner() {
     await cmdHelper(cmd35);
     await cmdHelper(cmd4);
     await cmdHelper(cmd5);
-	await cmdHelper(cmd6)
+    await cmdHelper(cmd6);
 }
 
 runner();

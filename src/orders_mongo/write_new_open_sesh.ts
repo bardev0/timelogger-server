@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { URI2, dbs, cols } from '../mongo';
+import { URI2, dbs, cols, tlerrors } from '../mongo';
 
 // TODO -> add strict type
 export const write_new_sesh = async (sessionData: any) => {
@@ -7,8 +7,18 @@ export const write_new_sesh = async (sessionData: any) => {
     let db = await client.db(dbs.timelogger);
     let col = await db.collection(cols.openSessions);
 
-    let result = await col.insertOne(sessionData);
+    console.log(sessionData);
 
-    return result;
+    let check = await col.find().toArray();
+    console.log(check.length);
+
+    if (check.length == 0) {
+        let result = await col.insertOne(sessionData);
+        console.log(result);
+        return result;
+    } else {
+        return {
+            tlerror: tlerrors.sessionAlreadyOpened,
+        };
+    }
 };
-//
