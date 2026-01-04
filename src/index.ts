@@ -14,4 +14,6 @@ app.listen(appinfo.docker.portContainer, () => {
 // there should be only one open session, after completion it should be moved to "closedSessions"
 // [] create a function/ route that checks if theres an open sesh and return info into client with warning
 // [] create a route that returns all closed sessions to client
-// [] create a function/ route that closes current open session and moves it into closed -> app done?
+// [*] create a function/ route that closes current open session and moves it into closed -> app done?
+//
+// [] find a way to copy current types to docker build

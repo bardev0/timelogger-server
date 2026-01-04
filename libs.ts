@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 export async function cmdHelper(srr: string) {
     const arr = srr.split(' ');
     const prosces = Bun.spawn({
@@ -7,6 +9,11 @@ export async function cmdHelper(srr: string) {
     });
 
     await prosces.exited;
+}
+
+export function getVersion(packageJsonPath = 'package.json'): string {
+    const pkg = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+    return pkg.version;
 }
 
 export async function getExternalIp() {
